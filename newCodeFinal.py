@@ -32,7 +32,33 @@ LAYER_NAME_GOAL = "goal"
 LAYER_NAME_ENEMIES = "enemies"
 
 
-class MyGame(arcade.Window):
+class InstructionView(arcade.View):
+    """ View to show instructions """
+
+    def on_show(self):
+        """ This is run once when we switch to this view """
+        arcade.set_background_color(arcade.csscolor.DARK_SLATE_BLUE)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, self.window.width, 0, self.window.height)
+
+    def on_draw(self):
+        """ Draw this view """
+        self.clear()
+        arcade.draw_text("Choose your character!", self.window.width / 2, self.window.height / 2 + 25,
+                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text("Click to advance", self.window.width / 2, self.window.height / 2-100,
+                         arcade.color.WHITE, font_size=20, anchor_x="center")
+        
+
+    def on_mouse_press(self, _x, _y, _button, _modifiers):
+        """ If the user presses the mouse button, start the game. """
+        game_view = MyGame()
+        game_view.setup()
+        self.window.show_view(game_view)
+
+class MyGame(arcade.View):
     """
     Main application class.
     """
@@ -40,7 +66,7 @@ class MyGame(arcade.Window):
     def __init__(self):
 
         # Call the parent class and set up the window
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+        super().__init__()
 
         # Our TileMap Object
         self.tile_map = None
@@ -78,8 +104,8 @@ class MyGame(arcade.Window):
         """Set up the game here. Call this function to restart the game."""
 
         # Set up the Cameras
-        self.camera = arcade.Camera(self.width, self.height)
-        self.gui_camera = arcade.Camera(self.width, self.height)
+        self.camera = arcade.Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.gui_camera = arcade.Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
 
         # Map name
         map_name = f"map_tile_1.tmj"
@@ -248,8 +274,10 @@ class MyGame(arcade.Window):
 
 def main():
     """Main function"""
-    window = MyGame()
-    window.setup()
+    window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+    start_view = InstructionView()
+    window.show_view(start_view)
+    # start_view.setup()
     arcade.run()
 
 
