@@ -108,7 +108,7 @@ class MyGame(arcade.View):
         self.gui_camera = arcade.Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
 
         # Map name
-        map_name = f"map_tile_1.tmj"
+        map_name = f"map_tile_{self.level}.tmj"
 
         # Layer Specific Options for the Tilemap
         layer_options = {
