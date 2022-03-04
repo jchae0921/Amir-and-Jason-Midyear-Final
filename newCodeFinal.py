@@ -17,7 +17,7 @@ GRID_PIXEL_SIZE = SPRITE_PIXEL_SIZE * TILE_SCALING
 
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 10
-GRAVITY = 1
+GRAVITY = 0.9
 PLAYER_JUMP_SPEED = 20
 
 # Player starting position
@@ -26,6 +26,7 @@ PLAYER_START_Y = 225
 
 # Layer Names from our TileMap
 LAYER_NAME_GROUND = "ground"
+LAYER_NAME_BOOST = "boost"
 LAYER_NAME_COINS = "coins"
 LAYER_NAME_BACKGROUND = "background"
 LAYER_NAME_GOAL = "goal"
@@ -133,6 +134,9 @@ class MyGame(arcade.View):
         # Keep track of the score
         self.score = 0
 
+        #movement speed
+        self.movement_speed = 10
+
         # Add Player Spritelist before "Foreground" layer. This will make the foreground
         # be drawn after the player, making it appear to be in front of the Player.
         # Setting before using scene.add_sprite allows us to define where the SpriteList
@@ -197,9 +201,9 @@ class MyGame(arcade.View):
                 self.player_sprite.change_y = PLAYER_JUMP_SPEED
                 arcade.play_sound(self.jump_sound)
         elif key == arcade.key.LEFT or key == arcade.key.A:
-            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
+            self.player_sprite.change_x = -self.movement_speed
         elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+            self.player_sprite.change_x = self.movement_speed
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -249,6 +253,21 @@ class MyGame(arcade.View):
 
             arcade.play_sound(self.game_over)
 
+        # Did the player touch something that gives them a boost?
+        #if arcade.check_for_collision_with_list(
+        #    self.player_sprite, self.scene[LAYER_NAME_BOOST]
+        #):
+        #    self.movement_speed += 2.5
+
+        boost_hit_list = arcade.check_for_collision_with_list(
+            self.player_sprite, self.scene[LAYER_NAME_BOOST]
+        )
+
+        for boost in boost_hit_list:
+            boost.remove_from_sprite_lists()
+            self.movement_speed += 1.5
+
+        
         # Did the player touch something they should not?
         if arcade.check_for_collision_with_list(
             self.player_sprite, self.scene[LAYER_NAME_ENEMIES]
