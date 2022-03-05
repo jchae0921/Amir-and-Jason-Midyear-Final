@@ -2,6 +2,7 @@
 Platformer Game
 """
 import arcade
+import arcade.gui
 
 # Constants
 SCREEN_WIDTH = 1000
@@ -31,26 +32,64 @@ LAYER_NAME_COINS = "coins"
 LAYER_NAME_BACKGROUND = "background"
 LAYER_NAME_GOAL = "goal"
 LAYER_NAME_ENEMIES = "enemies"
+character_selection = ""
+class AmirioChoose(arcade.gui.UIFlatButton):
+    def on_click(self, event: arcade.gui.UIOnClickEvent):
+        character_selection = "boptoit.png"
 
+class LuichaeChoose(arcade.gui.UIFlatButton):
+    def on_click(self, event: arcade.gui.UIOnClickEvent):
+        character_selection = "____.png"
+
+
+class PrincessChoose(arcade.gui.UIFlatButton):
+    def on_click(self, event: arcade.gui.UIOnClickEvent):
+        character_selection = "____.png"
+
+class QuitButton(arcade.gui.UIFlatButton):
+    def on_click(self, event: arcade.gui.UIOnClickEvent):
+        arcade.exit()
 
 class InstructionView(arcade.View):
     """ View to show instructions """
 
     def on_show(self):
         """ This is run once when we switch to this view """
+        character_selection = ""
+        self.manager = arcade.gui.UIManager()
+        self.manager.enable()
+        
         arcade.set_background_color(arcade.csscolor.DARK_SLATE_BLUE)
 
         # Reset the viewport, necessary if we have a scrolling game and we need
         # to reset the viewport back to the start so we can see what we draw.
         arcade.set_viewport(0, self.window.width, 0, self.window.height)
 
+        self.v_box = arcade.gui.UIBoxLayout()
+
+        amirio_button = AmirioChoose(text="Choose Amirio!", width=200)
+        self.v_box.add(amirio_button.with_space_around(bottom=20))
+
+        luichae_button = LuichaeChoose(text="Choose Luichae!", width=200)
+        self.v_box.add(luichae_button.with_space_around(bottom=20))
+
+        princess_button = PrincessChoose(text="Choose Princess Parth!", width=200)
+        self.v_box.add(princess_button.with_space_around(bottom=20))
+
+        quit_button = QuitButton(text="Quit", width=200)
+        self.v_box.add(quit_button)
+
+        self.manager.add(
+            arcade.gui.UIAnchorWidget(
+                anchor_x="center_x",
+                anchor_y="center_y",
+                child=self.v_box)
+        )
+        
     def on_draw(self):
         """ Draw this view """
         self.clear()
-        arcade.draw_text("Choose your character!", self.window.width / 2, self.window.height / 2 + 25,
-                         arcade.color.WHITE, font_size=50, anchor_x="center")
-        arcade.draw_text("Click to advance", self.window.width / 2, self.window.height / 2-100,
-                         arcade.color.WHITE, font_size=20, anchor_x="center")
+        self.manager.draw()
         
 
     def on_mouse_press(self, _x, _y, _button, _modifiers):
@@ -146,6 +185,7 @@ class MyGame(arcade.View):
 
         # Set up the player, specifically placing it at these coordinates.
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
+        #image_source = f"{character_selection}"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
         self.player_sprite.center_x = PLAYER_START_X
         self.player_sprite.center_y = PLAYER_START_Y
