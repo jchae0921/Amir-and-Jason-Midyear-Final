@@ -135,9 +135,32 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":5,
+         "name":"boost",
+         "objects":[
+                {
+                 "gid":17,
+                 "height":128,
+                 "id":8,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":2429.39096533605,
+                 "y":2185.07466734469
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":8,
+ "nextlayerid":6,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.0",
@@ -146,6 +169,10 @@
         {
          "firstgid":1,
          "source":"map_tileset_2.tsj"
+        }, 
+        {
+         "firstgid":9,
+         "source":"map_tileset_3.tsj"
         }],
  "tilewidth":128,
  "type":"map",

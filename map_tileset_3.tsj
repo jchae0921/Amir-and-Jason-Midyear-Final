@@ -1,0 +1,84 @@
+{ "columns":0,
+ "grid":
+    {
+     "height":1,
+     "orientation":"orthogonal",
+     "width":1
+    },
+ "margin":0,
+ "name":"map_tileset_3",
+ "spacing":0,
+ "tilecount":11,
+ "tiledversion":"1.8.0",
+ "tileheight":1024,
+ "tiles":[
+        {
+         "id":0,
+         "image":"..\/..\/..\/..\/..\/..\/..\/Downloads\/wario.png",
+         "imageheight":130,
+         "imagewidth":120
+        }, 
+        {
+         "id":1,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Planet\/planetCenter.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":2,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Planet\/planet.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":3,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Planet\/planetCliffAlt_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":4,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Planet\/planetCliffAlt_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":5,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Planet\/planetCliff_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":6,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Planet\/planetCliff_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":7,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Items\/coinGold.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":8,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Items\/star.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":9,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Backgrounds\/blue_land.png",
+         "imageheight":1024,
+         "imagewidth":1024
+        }, 
+        {
+         "id":10,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Backgrounds\/colored_shroom.png",
+         "imageheight":1024,
+         "imagewidth":1024
+        }],
+ "tilewidth":1024,
+ "type":"tileset",
+ "version":"1.8"
+}

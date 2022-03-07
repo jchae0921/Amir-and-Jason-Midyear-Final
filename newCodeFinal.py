@@ -32,52 +32,73 @@ LAYER_NAME_COINS = "coins"
 LAYER_NAME_BACKGROUND = "background"
 LAYER_NAME_GOAL = "goal"
 LAYER_NAME_ENEMIES = "enemies"
-character_selection = ""
-class AmirioChoose(arcade.gui.UIFlatButton):
-    def on_click(self, event: arcade.gui.UIOnClickEvent):
-        character_selection = "boptoit.png"
+character_selected = ""
+isChosen = False
 
-class LuichaeChoose(arcade.gui.UIFlatButton):
-    def on_click(self, event: arcade.gui.UIOnClickEvent):
-        character_selection = "____.png"
-
-
-class PrincessChoose(arcade.gui.UIFlatButton):
-    def on_click(self, event: arcade.gui.UIOnClickEvent):
-        character_selection = "____.png"
-
-class QuitButton(arcade.gui.UIFlatButton):
-    def on_click(self, event: arcade.gui.UIOnClickEvent):
-        arcade.exit()
 
 class InstructionView(arcade.View):
     """ View to show instructions """
 
     def on_show(self):
         """ This is run once when we switch to this view """
-        character_selection = ""
         self.manager = arcade.gui.UIManager()
         self.manager.enable()
         
-        arcade.set_background_color(arcade.csscolor.DARK_SLATE_BLUE)
+        arcade.set_background_color(arcade.csscolor.FOREST_GREEN)
 
         # Reset the viewport, necessary if we have a scrolling game and we need
         # to reset the viewport back to the start so we can see what we draw.
         arcade.set_viewport(0, self.window.width, 0, self.window.height)
 
         self.v_box = arcade.gui.UIBoxLayout()
+        def choose_amirio(self, event):
+            character_selected = "boptoit.png"
+            isChosen = True
+        def choose_luichae(self, event):
+            character_selected = "boptoit.png"
+            isChosen = True
+        def choose_princess(self, event):
+            character_selected = "boptoit.png"
+            isChosen = True
+    
 
-        amirio_button = AmirioChoose(text="Choose Amirio!", width=200)
+        #def choose_quit(self, event):
+            #arcade.exit()
+
+
+        amirio_button = arcade.gui.UIFlatButton(text = "Choose Amirio!", width = 200)
+        amirio_button.on_click = lambda event : self.do_thing(event,"amirio_1.png")
         self.v_box.add(amirio_button.with_space_around(bottom=20))
 
-        luichae_button = LuichaeChoose(text="Choose Luichae!", width=200)
+        
+
+        luichae_button = arcade.gui.UIFlatButton(text = "Choose Luichae!", width = 200)
+        luichae_button.on_click = lambda event : self.do_thing(event,"luichae.png")
         self.v_box.add(luichae_button.with_space_around(bottom=20))
 
-        princess_button = PrincessChoose(text="Choose Princess Parth!", width=200)
+    
+
+        princess_button = arcade.gui.UIFlatButton(text = "Choose Princess Parth!", width = 200)
+        princess_button.on_click = lambda event : self.do_thing(event,"princessparth.png")
         self.v_box.add(princess_button.with_space_around(bottom=20))
 
-        quit_button = QuitButton(text="Quit", width=200)
-        self.v_box.add(quit_button)
+        new_button = arcade.gui.UIFlatButton(text = "Choose Princess Parth!", width = 200)
+        new_button.on_click = lambda event : self.do_thing(event,"princessparth.png")
+        self.v_box.add(new_button.with_space_around(bottom=20))
+
+
+
+        #amirio_button = AmirioChoose(text="Choose Amirio!", width=200)
+        #self.v_box.add(amirio_button.with_space_around(bottom=20))
+
+        #luichae_button = LuichaeChoose(text="Choose Luichae!", width=200)
+        #self.v_box.add(luichae_button.with_space_around(bottom=20))
+
+        #princess_button = PrincessChoose(text="Choose Princess Parth!", width=200)
+        #self.v_box.add(princess_button.with_space_around(bottom=20))
+
+        #quit_button = QuitButton(text="Quit", width=200)
+        #self.v_box.add(quit_button)
 
         self.manager.add(
             arcade.gui.UIAnchorWidget(
@@ -90,20 +111,23 @@ class InstructionView(arcade.View):
         """ Draw this view """
         self.clear()
         self.manager.draw()
+    
+    def do_thing(self, event, thing):
+            """ If the user presses the mouse button, start the game. """
+            #if isChosen == True:
+            game_view = MyGame(thing)
+            game_view.setup()
+            self.window.show_view(game_view)
+
         
 
-    def on_mouse_press(self, _x, _y, _button, _modifiers):
-        """ If the user presses the mouse button, start the game. """
-        game_view = MyGame()
-        game_view.setup()
-        self.window.show_view(game_view)
 
 class MyGame(arcade.View):
     """
     Main application class.
     """
 
-    def __init__(self):
+    def __init__(self, character_selected):
 
         # Call the parent class and set up the window
         super().__init__()
@@ -134,6 +158,8 @@ class MyGame(arcade.View):
 
         # Level
         self.level = 1
+
+        self.character = character_selected
 
         # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
@@ -184,8 +210,8 @@ class MyGame(arcade.View):
         self.scene.add_sprite_list_after("Player", LAYER_NAME_BACKGROUND)
 
         # Set up the player, specifically placing it at these coordinates.
-        image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
-        #image_source = f"{character_selection}"
+        #image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
+        image_source = f"{self.character}"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
         self.player_sprite.center_x = PLAYER_START_X
         self.player_sprite.center_y = PLAYER_START_Y
