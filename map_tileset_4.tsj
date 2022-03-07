@@ -1,0 +1,156 @@
+{ "columns":0,
+ "grid":
+    {
+     "height":1,
+     "orientation":"orthogonal",
+     "width":1
+    },
+ "margin":0,
+ "name":"map_tileset_4",
+ "spacing":0,
+ "tilecount":23,
+ "tiledversion":"1.8.0",
+ "tileheight":1024,
+ "tiles":[
+        {
+         "id":18,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Items\/coinGold.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":19,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Items\/star.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":20,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Backgrounds\/colored_land.png",
+         "imageheight":1024,
+         "imagewidth":1024
+        }, 
+        {
+         "id":21,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Backgrounds\/blue_land.png",
+         "imageheight":1024,
+         "imagewidth":1024
+        }, 
+        {
+         "id":40,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stone.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":41,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCenter_rounded.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":42,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCenter.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":43,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCliff_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":44,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCliff_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":45,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCliffAlt_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":46,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCliffAlt_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":47,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCorner_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":48,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneCorner_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":49,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneHalf_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":50,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneHalf_mid.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":51,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneHalf_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":52,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneHalf.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":53,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneHill_left.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":54,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneHill_right.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":55,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneLeft.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":56,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneMid.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":57,
+         "image":"Platformer Pack Redux (360 assets)\/PNG\/Ground\/Stone\/stoneRight.png",
+         "imageheight":128,
+         "imagewidth":128
+        }, 
+        {
+         "id":58,
+         "image":"..\/..\/..\/..\/..\/..\/..\/Downloads\/bca.png",
+         "imageheight":120,
+         "imagewidth":120
+        }],
+ "tilewidth":1024,
+ "type":"tileset",
+ "version":"1.8"
+}

@@ -82,7 +82,7 @@ class InstructionView(arcade.View):
         princess_button.on_click = lambda event : self.do_thing(event,"princessparth.png")
         self.v_box.add(princess_button.with_space_around(bottom=20))
 
-        new_button = arcade.gui.UIFlatButton(text = "Choose Princess Parth!", width = 200)
+        new_button = arcade.gui.UIFlatButton(text = "Choose Toad!", width = 200)
         new_button.on_click = lambda event : self.do_thing(event,"princessparth.png")
         self.v_box.add(new_button.with_space_around(bottom=20))
 
@@ -349,7 +349,8 @@ class MyGame(arcade.View):
         if self.player_sprite.center_x >= self.end_of_map:
             # Advance to the next level
             self.level += 1
-
+            if self.level > 4:
+                self.level -= 4
             # Load the next level
             self.setup()
 
