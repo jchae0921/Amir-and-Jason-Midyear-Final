@@ -83,7 +83,7 @@ class InstructionView(arcade.View):
         self.v_box.add(princess_button.with_space_around(bottom=20))
 
         new_button = arcade.gui.UIFlatButton(text = "Choose Toad!", width = 200)
-        new_button.on_click = lambda event : self.do_thing(event,"princessparth.png")
+        new_button.on_click = lambda event : self.do_thing(event,"toad.png")
         self.v_box.add(new_button.with_space_around(bottom=20))
 
 
